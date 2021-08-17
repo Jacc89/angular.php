@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-header">
+
+    <a  class="btn btn-success"  routerLink="/addUser/">Agregar Usuarios</a><br>
+  </div>
+  <div class="card-body">
+    <h1> Listado Usuarios</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th scope="row 2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let iControl = index">
+          <td>{{ user.id}}</td>
+          <td>{{user.nombre}}</td>
+          <td>{{user.correo}}</td>
+          <td>
+            <a  class="btn btn-info"  routerLink="/editUser/{{user.id}}">   Editar  </a>
+            <a class="btn btn-danger" (click)="deleteUser(user.id, iControl)">Eliminar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
